@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Story Analysis Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>📚 Story Analyzer</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="upload.html">Upload Story</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+        <section class="dashboard-header">
+            <h2>Analysis Dashboard</h2>
+            <p>View detailed insights and analytics for your uploaded stories</p>
+        </section>
+
+        <div class="dashboard-content">
+            <div class="no-data" id="noData">
+                <div class="empty-state">
+                    <div class="empty-icon">📊</div>
+                    <h3>No Stories Analyzed Yet</h3>
+                    <p>Upload your first story to see detailed analysis and insights here.</p>
+                    <a href="upload.html" class="btn btn-primary">Upload Story</a>
+                </div>
+            </div>
+
+            <div class="dashboard-grid" id="dashboardGrid" style="display: none;">
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon">📖</div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="totalStories">0</span>
+                            <span class="stat-label">Stories Analyzed</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📝</div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="totalWords">0</span>
+                            <span class="stat-label">Total Words</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">😊</div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="avgSentiment">0</span>
+                            <span class="stat-label">Avg Sentiment</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="avgCharacters">0</span>
+                            <span class="stat-label">Avg Characters</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analysis-cards">
+                    <div class="analysis-card">
+                        <h3>Recent Stories</h3>
+                        <div class="story-list" id="recentStories">
+                            <!-- Stories will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="analysis-card">
+                        <h3>Sentiment Distribution</h3>
+                        <canvas id="sentimentChart" width="300" height="200"></canvas>
+                    </div>
+
+                    <div class="analysis-card">
+                        <h3>Genre Analysis</h3>
+                        <canvas id="genreChart" width="300" height="200"></canvas>
+                    </div>
+
+                    <div class="analysis-card full-width">
+                        <h3>Story Details</h3>
+                        <div class="story-details" id="storyDetails">
+                            <p>Select a story from the recent stories to view detailed analysis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Story Analysis Platform. Built with AI and powered by creativity.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
