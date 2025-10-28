@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Story - Story Analysis Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>📚 Story Analyzer</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="upload.html" class="active">Upload Story</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="upload-page">
+        <section class="upload-container">
+            <h2>Upload Your Story</h2>
+            <p>Share your story with us and get detailed AI analysis including sentiment, characters, themes, and more.</p>
+            
+            <div class="upload-form">
+                <form id="storyUploadForm">
+                    <div class="form-group">
+                        <label for="storyTitle">Story Title</label>
+                        <input type="text" id="storyTitle" name="title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="authorName">Author Name</label>
+                        <input type="text" id="authorName" name="author" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="storyGenre">Genre</label>
+                        <select id="storyGenre" name="genre">
+                            <option value="">Select Genre</option>
+                            <option value="fiction">Fiction</option>
+                            <option value="non-fiction">Non-Fiction</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="romance">Romance</option>
+                            <option value="sci-fi">Science Fiction</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="horror">Horror</option>
+                            <option value="biography">Biography</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="storyContent">Story Content</label>
+                        <textarea id="storyContent" name="content" rows="15" placeholder="Paste your story content here..." required></textarea>
+                        <small>Minimum 100 words for accurate analysis</small>
+                    </div>
+                    
+                    <div class="form-group file-upload">
+                        <label for="fileUpload">Or Upload Text File</label>
+                        <input type="file" id="fileUpload" accept=".txt,.doc,.docx" onChange="handleFileUpload(event)">
+                        <div class="file-drop-zone" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+                            <div class="file-icon">📄</div>
+                            <p>Drag and drop your story file here or click to browse</p>
+                            <small>Supported formats: .txt, .doc, .docx</small>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="analyzeBtn">
+                        <span class="btn-text">Analyze Story</span>
+                        <div class="loading-spinner" style="display: none;"></div>
+                    </button>
+                </form>
+            </div>
+            
+            <div class="analysis-preview" id="analysisPreview" style="display: none;">
+                <h3>Analysis in Progress...</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p>This may take a few moments depending on the length of your story.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Story Analysis Platform. Built with AI and powered by creativity.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
